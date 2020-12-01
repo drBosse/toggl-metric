@@ -59,9 +59,9 @@ if (this.month == 1) {
 }
 last.start <- as.Date(paste(last.year, "-", last.month, "-", "1", sep = ''))
 
-if ( last.month %in% c(1,3,5,7,9,11) ) {
+if ( last.month %in% c(1,3,5,7,8,10,12) ) {
   last.lenght <- 31
-} else if ( last.month %in% c(4,6,8,10,12) ) {
+} else if ( last.month %in% c(4,6,9,11) ) {
   last.lenght <- 30
 } else if ( last.month == 2 ) {
   if ( last.year %% 4 == 0 ) {
@@ -71,7 +71,7 @@ if ( last.month %in% c(1,3,5,7,9,11) ) {
   }
 }
 
-last.stop <- as.Date(paste(last.year, "-", last.month, "-", last.lenght, sep = ''))
+last.stop <- as.Date(as.character(paste(last.year, last.month, last.lenght, sep = '-')))
 
 days.since.the.first <- as.numeric(this.date[3]) - 1
 
