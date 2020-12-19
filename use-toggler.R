@@ -89,6 +89,10 @@ for (i in 1:number.of.groups) {
   if (length(detailed.data.this.month) > 0) {
     detailed.data.this.month <- convert.duration.to.hours(detailed.data.this.month)
 
+    if (group.name %in% c("Göteborg", "Sweden")) {
+      detailed.data.this.month <- subset(detailed.data.this.month, user != "Cai Bergman")
+    }
+
     day.data <- bin.data.by.day(detailed.data.this.month)
 
     this.month.plot <- this.month.day.plot(day.data, group.name, wday.colors, days.since.the.first)
@@ -106,6 +110,10 @@ for (i in 1:number.of.groups) {
 
   if (length(detailed.data.last.month) > 0) {
     detailed.data.last.month <- convert.duration.to.hours(detailed.data.last.month)
+
+    if (group.name %in% c("Göteborg", "Sweden")) {
+      detailed.data.last.month <- subset(detailed.data.last.month, user != "Cai Bergman")
+    }
 
     day.data <- bin.data.by.day(detailed.data.last.month)
 
